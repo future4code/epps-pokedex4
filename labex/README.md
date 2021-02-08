@@ -3,7 +3,7 @@
 Nome dos integrantes: 
 - Bruno Galhardi Vallim
 - Douglas Henrique Buzeti Florido
-- Matheus Novaes 
+- Matheus Dias Novaes
 
 Link do Surge: www.link.com.br
 
