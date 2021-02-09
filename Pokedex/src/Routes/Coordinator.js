@@ -1,4 +1,4 @@
-export const goToApplicationFormPage = (history, path) => {
+export const goToPage = (history, path) => {
     history.push(path)
   };
 
