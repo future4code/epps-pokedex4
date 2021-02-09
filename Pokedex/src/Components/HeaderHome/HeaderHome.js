@@ -11,6 +11,7 @@ const MainContainer = styled.div`
     color:#CA01F5;
     justify-content:center;
     text-align:center;
+    font-family: 'Press Start 2P';
 `
 
 const BtnHome = styled.button`

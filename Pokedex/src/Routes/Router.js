@@ -4,6 +4,7 @@ import Details from '../Pages/Details/Details'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HeaderHome from "../Components/HeaderHome/HeaderHome"
 import HeaderPokedex from '../Components/HeaderPokedex/HeaderPokedex'
+import Header from '../Components/Header/Header'
 
 export default function Router() {
 
@@ -13,6 +14,7 @@ export default function Router() {
             <Switch>
                 <Route exact path="/">
                     <HeaderHome/>
+                    <Header/>
                     <Home />
                 </Route>
                 <Route exact path="/pokedex">
