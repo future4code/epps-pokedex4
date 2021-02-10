@@ -1,25 +1,48 @@
-import GlobalStateContext from '../../Contexts/GlobalStateContext'
 import React, { useState, useEffect, useContext } from 'react'
+import GlobalStateContext from '../../Contexts/GlobalStateContext'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+import { BASE_URL} from '../../Constants/url'
 
-function Home() {
 
+const Home = () =>{
   const { states, setters, requests } = useContext(GlobalStateContext)
+  const history = useHistory()
+  const [pokemon, setPokemon] = useState('')
+
 
   useEffect(()=>{
     requests.getPokemons()
-  },[])
     
-  /* const listPokemon = states.pokemons.map((pokemon)=>{ */
-    return (
-      <div>
-        {/* name={pokemon.name}
-        image={pokemon.photos[0]} */}
-     </div>
-     
-   );
-  /* }) */
-    
-  }
+  }, [])
+
   
+
+const pokemonList = 
+states.pokemons && 
+states.pokemons.map((pokemon)=>{
+  
+    return(
+      <div>
+        <p>{pokemon.name}</p>
+        <div>
+          
+        </div>
+               
+      </div>
+      
+    )
+  })
+
+
+  return (
+    <div>
+      {pokemonList}
+   </div>
+   
+ );
+}
+
+
   export default Home;
   
