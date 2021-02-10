@@ -1,10 +1,12 @@
 import Router from './Routes/Router.js'
+import GlobalState from './Global/GlobalState'
+import Header from './Components/Header/Header.js';
 
 function App() {
   return (
-    <div>
+    <GlobalState>      
       <Router/>
-    </div>
+    </GlobalState>
   );
 }
 
