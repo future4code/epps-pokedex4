@@ -6,6 +6,7 @@ import GlobalStateContext from '../Contexts/GlobalStateContext'
 const GlobalState = (props) =>{
 
     const [pokemons, setPokemons] = useState([])
+    const [imgPokemon, setImgPokemon]= useState('')
     
 
     const getPokemons = () =>{
@@ -20,10 +21,12 @@ const GlobalState = (props) =>{
             console.log(err)
         })
     }
-    const requests = { getPokemons };
+
+  
     
-    const states = {pokemons}
-    const setters ={setPokemons}
+    const states = {pokemons, imgPokemon}
+    const setters ={setPokemons, setImgPokemon}
+    const requests = { getPokemons };
 
     const data = {states, setters, requests };
 
