@@ -11,48 +11,49 @@ const PokemonList = () => {
 
   useEffect(() => {
     requests.getPokemons({})
-    console.log(states.pokemonDetail)
+    // console.log(states.pokemonDetail)
 
   }, [])
 
 
-  // const pokemonList = 
-  //   states.pokemons &&
-  //     states.pokemons.map((pokemon) => {
+  const pokemonList =
+    states.pokemonDetail &&
+    states.pokemonDetail.map((pokemon) => {
 
-  //       return (
-  //         <>
-  //           <p>{requests.getPokemonDetail(pokemon.name)}</p>
-  //           <p>{pokemon.name}</p>
-  //         <img src={states.pokemonDetail} alt={pokemon.name} />
-  //           <button onClick={() => { goToPage(history, "/details") }}>Details</button>
-  //           <button>Add</button>
-  //         </>
-  //       )
-  //     })
+      return (
+        <>          
+          <p>{pokemon.name}</p>
+          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+          <button onClick={() => { goToPage(history, "/details") }}>Details</button>
+          <button>Add</button>
+        </>
+      )
+    })
 
   // const pokemonList = requests.getPokemons()
 
 
-  // const pokemonList =
+  // let pokemonList =
   //   states.pokemonDetail &&
   //   states.pokemonDetail.map((pok) => {
-  //     return(
+  //     console.log(pok)
+  //     return (
   //       <>
-  //       <p>{pok[0]}</p>
-  //       <img src={pok[1]}/>
+  //         <p>{pok.name}</p>
+  //         <img src={pok.sprites.front_default} alt={pok.name} />
+
   //       </>
 
   //     )
   //   })
 
 
-return (
-  <>
-  {/* {pokemonList} */}
-  </>
+  return (
+    <>
+      {pokemonList}
+    </>
 
-);
+  );
 
 
 
