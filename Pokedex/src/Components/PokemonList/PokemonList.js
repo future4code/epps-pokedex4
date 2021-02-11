@@ -9,26 +9,31 @@ const PokemonList = () => {
   const history = useHistory()
 
 
-  useEffect(() => {
-    requests.getPokemons({})
-    // console.log(states.pokemonDetail)
+  
 
-  }, [])
+  console.log("pokemonDetailNoComponente", states.pokemonDetail)
+  console.log("length", states.pokemonDetail.length)
 
 
   const pokemonList =
-    states.pokemonDetail &&
-    states.pokemonDetail.map((pokemon) => {
+    // console.log("Dentro do Componente",states.pokemonDetail)
 
+    states.pokemonDetail.map((pokemon) => {
+      console.log("dentro do map", pokemon)
       return (
-        <>          
+        <>
           <p>{pokemon.name}</p>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <button onClick={() => { goToPage(history, "/details") }}>Details</button>
-          <button>Add</button>
+
+          {/* <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <button onClick={() => { goToPage(history, "/details") }}>Details</button>
+            <button>Add</button> */}
+
         </>
       )
+
     })
+  // console.log("pokepoke",pokepoke)
+
 
   // const pokemonList = requests.getPokemons()
 
@@ -50,7 +55,19 @@ const PokemonList = () => {
 
   return (
     <>
-      {pokemonList}
+      { states.pokemonDetail &&
+        states.pokemonDetail.map((pokemon) => {
+          console.log("dentro do map", pokemon)
+          return (
+            <>
+              <p>{pokemon.name}</p>
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <button onClick={() => { goToPage(history, "/details") }}>Details</button>
+              <button>Add</button>
+            </>
+          )
+        })
+      }
     </>
 
   );
