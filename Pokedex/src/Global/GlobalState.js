@@ -7,7 +7,7 @@ const GlobalState = (props) => {
 
     const [pokemons, setPokemons] = useState([])
     const [pokemonDetail, setPokemonDetail] = useState([])
-
+    console.log("pokemonDetail",pokemonDetail)
 
     const getPokemonDetail = (pokeName) => {
 
@@ -16,7 +16,7 @@ const GlobalState = (props) => {
             .then((res) => {
                 // console.log(res)
                 setPokemonDetail([pokeName, res.data.sprites.front_default])
-                console.log(pokemonDetail)
+                // console.log(pokemonDetail)
 
 
             })
@@ -39,16 +39,9 @@ const GlobalState = (props) => {
                             .get(`${BASE_URL}${poke.name}/`)
                             .then((res) => {
 
-                                console.log(poke.name)
-                                console.log(res.data)
-                                info.push([res.data])
-
-                                if(info.length === 20){
-                                    setPokemonDetail(info)
-                                    console.log(pokemonDetail)
-                                }
-                                
-
+                                // console.log(poke.name)
+                                // console.log(res.data)
+                                info.push([res.data])                             
                             })
                             .catch((err) => {
                                 console.log(err)
@@ -65,9 +58,10 @@ const GlobalState = (props) => {
                 console.log(err)
             })
 
-            console.log(info)
+            console.log("info", info)
             
-            
+            setPokemonDetail(info) 
+            console.log("pokemonDetailFinal",pokemonDetail)
 
     }
 
