@@ -12,11 +12,15 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {
+    display:'flex',
+    justifyContent:'center',
+    alignItems:"center",
+    flexDirection:'column',
     minWidth: 275,
     maxWidth: 300,
     marginTop: 20,
-    alignItems:"center",
-    justifyContent: "center",
+    
+    
 
   },
   bullet: {
@@ -34,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const PokemonList = () => {
+const PokemonList = (props) => {
   const { states, setters, requests } = useContext(GlobalStateContext)
   const classes = useStyles();
   const history = useHistory()
@@ -47,58 +51,26 @@ const PokemonList = () => {
   console.log("length", states.pokemonDetail.length)
 
 
-  const pokemonList =
-    // console.log("Dentro do Componente",states.pokemonDetail)
 
-    states.pokemonDetail.map((pokemon) => {
-      console.log("dentro do map", pokemon)
-      return (
-        <>
-          <p>{pokemon.name}</p>
-
-          {/* <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-            <button onClick={() => { goToPage(history, "/details") }}>Details</button>
-            <button>Add</button> */}
-
-        </>
-      )
-
-    })
-  // console.log("pokepoke",pokepoke)
-
-
-  // const pokemonList = requests.getPokemons()
-
-
-  // let pokemonList =
-  //   states.pokemonDetail &&
-  //   states.pokemonDetail.map((pok) => {
-  //     console.log(pok)
-  //     return (
-  //       <>
-  //         <p>{pok.name}</p>
-  //         <img src={pok.sprites.front_default} alt={pok.name} />
-
-  //       </>
-
-  //     )
-  //   })
 
 
   return (
-    <Grid container spacing={4} justify="center">
+    <Grid container spacing={4} >
       { states.pokemonDetail &&
         states.pokemonDetail.map((pokemon) => {
           console.log("dentro do map", pokemon)
+
           return (
             <Grid item>
               <Card className={classes.root}>
                 <CardContent className={classes.root}>
                   <Typography className={classes.title}>{pokemon.name}</Typography >
                   <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                  <br/>                  
+                  <br/>     
+                  <div>             
                   <Button variant="contained" onClick={() => { goToPage(history, "/details") }}>Details</Button>
-                  <Button variant="contained">Add</Button>
+                  <Button variant="contained" onClick={()=>{ requests.addToMyPokedex(pokemon)}}>Add</Button>
+                  </div>
                 </CardContent>
               </Card>
             </Grid>

@@ -7,13 +7,41 @@ const GlobalState = (props) => {
 
     const [pokemons, setPokemons] = useState([])
     const [pokemonDetail, setPokemonDetail] = useState([])
+    const [myPokedex, setMyPokedex] = useState([])
     console.log("pokemonDetail", pokemonDetail)
+    console.log("myPokedex", myPokedex)
 
     useEffect(() => {
         getPokemons()
         // console.log(states.pokemonDetail)
     }, [])
 
+    const removeFromMyPokedex = (pokeInfo) => {
+        const index = states.myPokedex.findIndex((i) => i.name === pokeInfo.name);
+        let refreshMyPokedex = [...states.myPokedex]
+        let newPokemonDetail = [...states.pokemonDetail]
+
+        newPokemonDetail.push({ ...pokeInfo })
+        setters.setPokemonDetail(newPokemonDetail)
+        
+        refreshMyPokedex.splice(index, 1);
+
+        setters.setMyPokedex(refreshMyPokedex)
+    }
+
+    const addToMyPokedex = (pokeInfo) => {
+        const index = states.pokemonDetail.findIndex((i) => i.name === pokeInfo.name);
+        let refreshPokemonDetail = [...states.pokemonDetail]
+        let newPokedex = [...states.myPokedex]
+
+        newPokedex.push({ ...pokeInfo })
+        setters.setMyPokedex(newPokedex)
+        
+        refreshPokemonDetail.splice(index, 1);
+
+
+        setters.setPokemonDetail(refreshPokemonDetail)
+    }
 
     const getPokemonDetail = (pokeName) => {
 
@@ -39,6 +67,7 @@ const GlobalState = (props) => {
             .get(`${BASE_URL}`)
             .then((res) => {
                 // console.log(res.data.results.name)
+                let resDataLenght = res.data.results.length
                 return (
                     res.data.results.map((poke) => {
                         axios
@@ -48,7 +77,7 @@ const GlobalState = (props) => {
                                 // console.log(poke.name)
                                 // console.log(res.data)
                                 info.push(res.data)
-                                if(info.length === 20){
+                                if (info.length === resDataLenght) {
                                     setPokemonDetail(info)
                                 }
                             })
@@ -65,15 +94,17 @@ const GlobalState = (props) => {
             })
 
         console.log("info", info)
-        
+
         // console.log("pokemonDetailFinal", pokemonDetail)
 
     }
 
 
-    const states = { pokemons, pokemonDetail }
-    const setters = { setPokemons, setPokemonDetail }
-    const requests = { getPokemons, getPokemonDetail };
+
+
+    const states = { pokemons, pokemonDetail, myPokedex }
+    const setters = { setPokemons, setPokemonDetail, setMyPokedex }
+    const requests = { getPokemons, getPokemonDetail, addToMyPokedex, removeFromMyPokedex };
 
     const data = { states, setters, requests };
 

@@ -2,7 +2,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import {goToPage} from '../../Routes/Coordinator'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
