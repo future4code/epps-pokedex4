@@ -1,0 +1,19 @@
+# POKEDEX
+
+Nome dos integrantes: 
+- Bruno Galhardi Vallim
+- Douglas Henrique Buzeti Florido
+- Matheus Novaes 
+
+Link do Surge: accidental-desire.surge.sh
+
+
+O que funciona:
+- Adicionar e Remover Pokemons
+- Listar Pokemons
+- Detalhes de Pokemons
+
+O que não funciona: 
+- Sem reponsividade para Mobile
+- Não possui os 150 Pokemons
+- Não fizemos a Parte da Batalha
