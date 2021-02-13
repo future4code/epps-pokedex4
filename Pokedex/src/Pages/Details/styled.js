@@ -42,6 +42,11 @@ display:flex;
 align-items: center;
 justify-content:center;
 flex-direction: column;
+background-color:#F6F7DD;
+border-radius:2vh;
+border: 0.5vh groove;
+margin-left:1vh;
+margin-bottom: 3vh;
 
 
 
@@ -51,9 +56,18 @@ grid-area:PokeStats;
 display:flex;
 flex-direction: column;
 /* background-color:purple;   */
+background-color:#F6F7DD;
+border-radius:2vh;
+border: 0.5vh groove;
+padding:2vh;
+margin-bottom: 3vh;
 `
 export const PokeTypes = styled.div`
 grid-area:PokeTypes;
+background-color:#F6F7DD;
+border-radius:2vh;
+border: 0.5vh groove;
+margin-right: 1vh;
 
 `
 
@@ -78,14 +92,23 @@ export const PokeMoves = styled.div`
 display:grid;
 flex-wrap: no-wrap;
 grid-area:PokeMoves;
-background-color:yellow;
-max-height:300px;
 
+background-color:#F6F7DD;
+border-radius:2vh;
+border: 0.5vh groove;
+margin-right: 1vh;
+margin-bottom: 3vh;
 `
 
 export const AllMoves = styled.div`
-display:flex;
+display: flex;
 flex-wrap: wrap;
-flex-direction:column;
-background-color:pink;
+flex-direction: column;
+
+overflow: scroll;
+`
+
+export const FooterMoves = styled.footer`
+/* position:absolute;
+background-color:blue; */
 `

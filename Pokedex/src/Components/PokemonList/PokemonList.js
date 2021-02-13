@@ -18,10 +18,8 @@ const useStyles = makeStyles({
     flexDirection:'column',
     minWidth: 275,
     maxWidth: 300,
-    marginTop: 20,
-    
-    
-
+    marginTop: 20,  
+    backgroundColor: "#F6F7DD",
   },
   bullet: {
     display: 'inline-block',
@@ -42,17 +40,9 @@ const PokemonList = (props) => {
   const { states, setters, requests } = useContext(GlobalStateContext)
   const classes = useStyles();
   const history = useHistory()
-  
-
-
-
 
   console.log("pokemonDetailNoComponente", states.pokemonDetail)
   console.log("length", states.pokemonDetail.length)
-
-
-
-
 
   return (
     <Grid container spacing={4} >
