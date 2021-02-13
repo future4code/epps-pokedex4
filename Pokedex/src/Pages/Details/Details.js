@@ -3,8 +3,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import GlobalStateContext from '../../Contexts/GlobalStateContext'
 import { useHistory } from 'react-router-dom'
 
-import { PokeTypesBox,AllMoves, BoxStatus, Title, GridLayout, PokeName, PokeImages, PokeStats, PokeTypes, PokeMoves } from './styled.js'
-
+import { FooterMoves, PokeTypesBox, AllMoves, BoxStatus, Title, GridLayout, PokeName, PokeImages, PokeStats, PokeTypes, PokeMoves } from './styled.js'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 
 function Details() {
@@ -16,7 +17,7 @@ function Details() {
 
     <GridLayout>
       <PokeName>{states.pokemonPageDetail.name}</PokeName>
-
+    
       <PokeImages>
         <Title>Sprites</Title>
 
@@ -27,6 +28,7 @@ function Details() {
         <img src={states.pokemonPageDetail.sprites.front_shiny} />
         <img src={states.pokemonPageDetail.sprites.back_shiny} />
       </PokeImages>
+      
 
       <PokeStats>
         <Title>Stats</Title>
@@ -64,6 +66,7 @@ function Details() {
         <Title>Moves</Title>
         <AllMoves>
           <ul>
+
             {states.pokemonPageDetail &&
               states.pokemonPageDetail.moves.map((pok) => {
                 return (
@@ -73,8 +76,11 @@ function Details() {
                 )
               })
             }
+
           </ul>
         </AllMoves>
+        
+
       </PokeMoves>
     </GridLayout>
 

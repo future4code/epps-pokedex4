@@ -20,6 +20,7 @@ const useStyles = makeStyles({
         minWidth: 275,
         maxWidth: 300,
         marginTop: 20,
+        backgroundColor:"#F6F7DD",
 
 
     },
