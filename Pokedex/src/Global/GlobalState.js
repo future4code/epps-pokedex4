@@ -8,13 +8,17 @@ const GlobalState = (props) => {
     const [pokemons, setPokemons] = useState([])
     const [pokemonDetail, setPokemonDetail] = useState([])
     const [myPokedex, setMyPokedex] = useState([])
+    const [pokemonPageDetail, setPokemonPageDetail] = useState([])
+    
     console.log("pokemonDetail", pokemonDetail)
     console.log("myPokedex", myPokedex)
-
+    console.log(pokemonPageDetail)
     useEffect(() => {
         getPokemons()
-        // console.log(states.pokemonDetail)
+        
     }, [])
+
+    
 
     const removeFromMyPokedex = (pokeInfo) => {
         const index = states.myPokedex.findIndex((i) => i.name === pokeInfo.name);
@@ -94,17 +98,15 @@ const GlobalState = (props) => {
             })
 
         console.log("info", info)
-
         // console.log("pokemonDetailFinal", pokemonDetail)
-
     }
 
 
 
 
-    const states = { pokemons, pokemonDetail, myPokedex }
-    const setters = { setPokemons, setPokemonDetail, setMyPokedex }
-    const requests = { getPokemons, getPokemonDetail, addToMyPokedex, removeFromMyPokedex };
+    const states = { pokemons, pokemonDetail, myPokedex, pokemonPageDetail }
+    const setters = { setPokemons, setPokemonDetail, setMyPokedex, setPokemonPageDetail }
+    const requests = { getPokemons, getPokemonDetail, addToMyPokedex, removeFromMyPokedex  };
 
     const data = { states, setters, requests };
 
