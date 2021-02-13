@@ -4,7 +4,7 @@ import GlobalStateContext from '../../Contexts/GlobalStateContext';
 
 
 const Home = () =>{
-  const { states, setters, requests } = useContext(GlobalStateContext)
+  
 
 
 
