@@ -4,11 +4,6 @@ import GlobalStateContext from '../../Contexts/GlobalStateContext';
 
 
 const Home = () =>{
-  
-
-
-
-
   return (
     <div>
       <PokemonList/>

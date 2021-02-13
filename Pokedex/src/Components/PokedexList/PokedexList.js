@@ -69,7 +69,7 @@ const PokedexList = () => {
                                     <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                                     <br />
                                     <div>
-                                    <Button variant="contained" onClick={() => { goToPage(history, "/details") }}>Details</Button>
+                                    <Button variant="contained" onClick={() => { goToPage(history, "/details"); setters.setPokemonPageDetail(pokemon) }}>Details</Button>
                                     <Button variant="contained" onClick={() => { requests.removeFromMyPokedex(pokemon) }}>Remove</Button>
                                     </div>
                                 </CardContent>

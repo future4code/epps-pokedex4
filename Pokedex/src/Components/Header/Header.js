@@ -47,7 +47,7 @@ const Header = () => {
         <>
             <AppBar position="static" className={classes.root}>
                 <Tabs variant="fullWidth" className={classes.tabBar}>                    
-                    <Tab className={classes.tabBar} onClick={() => goToPage(history, "/")} label="Lista de Pokemons" />
+                    <Tab className={classes.tabBar} onClick={() => goToPage(history, "/")} label="20 Pokemons" />
                 </Tabs>
             </AppBar>
 
